@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta name="robots" content="noindex, nofollow,noarchive,nosnippet,noimageindex,noodp">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" type="image/ico" href="https://begonia-design.com.tw/images/favicon.ico">
+	<title>Icon Font - glyphs list</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="icons.css">
+	<link rel="stylesheet" href="iconfont-demo.css">
+</head>
+<body>
+<div class="wrapper" id="app">
+
+	<header id="header">
+		<div class="container">
+			<div class="hd-top">
+				<span class="t-title">使用說明文件：</span>
+				<a href="https://docs.google.com/document/d/1o-waHPhJDr3yPD8cfRazkEjcxA7Ho1SVKK8pNGNb9Ig/edit?usp=sharing" target="_blank" class="tooltip" data-title="限海棠設計員工讀取">gulp-iconfont 使用方式</a>
+			</div>
+			<div class="hd-center">
+				<h1 class="title">Icon Font<small class="t-tip"> - glyphs list</small></h1>
+				<div class="hd-gulptip">
+					<ul>
+						<li><span class="t-title">font-family:</span> "icon";</li>
+						<li><span class="t-title">Font class:</span> .be-icon</li>
+					</ul>
+					<p class="t-tip"><small>（於gulpfile.js調整設定）</small></p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Main Container -->
+	<main class="container" id="main">
+		<!-- Show Type -->
+		<div class="list-type-wrapper" id="list-type-wrapper">
+			<ul class="list-type">
+				<li>
+					<input type="radio" name="showtype" id="show-tag" class="radiobox" value="tag" v-model="x" checked>
+					<label for="show-tag">顯示&lt;i&gt;</label>
+				</li>
+				<li>
+					<input type="radio" name="showtype" id="show-class" class="radiobox" value="class" v-model="x">
+					<label for="show-class">顯示class</label>
+				</li>
+			</ul>
+		</div>
+
+		<!-- List -->
+		<ul class="glyphs-list">
+			
+			<li>
+				<i class="be-icon be-icon-arrow"></i>
+				<h4>arrow</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-arrow&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-arrow" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea01</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-booking"></i>
+				<h4>booking</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-booking&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-booking" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea02</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-buttonarrow"></i>
+				<h4>buttonarrow</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-buttonarrow&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-buttonarrow" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea03</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-car"></i>
+				<h4>car</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-car&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-car" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea04</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-cart"></i>
+				<h4>cart</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-cart&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-cart" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea05</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-cartstep1"></i>
+				<h4>cartstep1</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-cartstep1&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-cartstep1" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea06</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-cartstep2"></i>
+				<h4>cartstep2</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-cartstep2&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-cartstep2" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea07</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-cartstep3"></i>
+				<h4>cartstep3</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-cartstep3&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-cartstep3" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea08</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-cartstep4"></i>
+				<h4>cartstep4</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-cartstep4&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-cartstep4" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea09</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-clock"></i>
+				<h4>clock</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-clock&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-clock" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0a</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-closeicon"></i>
+				<h4>closeicon</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-closeicon&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-closeicon" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0b</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-copy"></i>
+				<h4>copy</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-copy&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-copy" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0c</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-fb"></i>
+				<h4>fb</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-fb&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-fb" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0d</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-hovericon"></i>
+				<h4>hovericon</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-hovericon&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-hovericon" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0e</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-icondelete"></i>
+				<h4>icondelete</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-icondelete&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-icondelete" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea0f</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-ig"></i>
+				<h4>ig</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-ig&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-ig" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea10</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-line"></i>
+				<h4>line</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-line&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-line" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea11</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-logo"></i>
+				<h4>logo</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-logo&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-logo" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea12</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-mail"></i>
+				<h4>mail</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-mail&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-mail" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea13</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-next"></i>
+				<h4>next</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-next&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-next" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea14</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-phone"></i>
+				<h4>phone</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-phone&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-phone" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea15</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-pin"></i>
+				<h4>pin</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-pin&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-pin" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea16</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-preson"></i>
+				<h4>preson</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-preson&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-preson" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea17</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-prev"></i>
+				<h4>prev</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-prev&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-prev" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea18</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-random"></i>
+				<h4>random</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-random&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-random" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea19</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-sale"></i>
+				<h4>sale</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-sale&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-sale" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea1a</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-search"></i>
+				<h4>search</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-search&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-search" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea1b</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-shape"></i>
+				<h4>shape</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-shape&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-shape" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea1c</code></p>
+			</li>
+			
+			<li>
+				<i class="be-icon be-icon-top"></i>
+				<h4>top</h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;be-icon be-icon-top&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="be-icon be-icon-top" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\ea1d</code></p>
+			</li>
+			
+		</ul>
+		<!-- /.End List -->
+	</main>
+
+	<footer id="footer">
+		© 2019 網頁設計的專家－ <a href="https://begonia-design.com.tw/" target="_blank">海棠網頁設計公司</a> ALL RIGHTS RESERVED
+	</footer>
+
+</div>
+<!-- /.End .wrapper -->
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script defer>
+	(function(window, document){
+		
+		// Create Element.remove() function if not exist
+		if (!('remove' in Element.prototype)) {
+			Element.prototype.remove = function() {
+				if (this.parentNode) {
+					this.parentNode.removeChild(this);
+				}
+			};
+		}
+
+		// Copy to Clipboard
+		var successMsg, clipTimer;
+
+		function addCopySuccess(){
+			if(successMsg == undefined){
+				successMsg = document.createElement('div');
+				successMsg.className = 'copysuctip';
+				successMsg.innerText = '複製成功';
+			}
+			document.body.appendChild(successMsg);
+
+			// Remove
+			clearTimeout(clipTimer);
+			clipTimer = null;
+			clipTimer = setTimeout(function(){
+				successMsg.remove();
+				clipTimer = null;
+			},3000);
+		}
+
+		var clipboard = new ClipboardJS('.btn-copy',{
+			target: function(el) {
+				return el.parentElement.querySelector('input');
+			}
+		});
+		clipboard.on('success', addCopySuccess);
+
+		var clipboard2 = new ClipboardJS('.copy-unicode',{
+			text: function(el) {
+				return el.innerText;
+			}
+		});
+		clipboard2.on('success', addCopySuccess);
+
+
+		// -----------------------------------
+		// Change Type (Vue)
+		new Vue({
+			el: '#app',
+			data: {
+				x: 'tag',
+			},
+		});
+
+		// -----------------------------------
+		// Scroll and fixed navigation
+
+		// Get Body Scroll Top (zh-Hant): http://www.eion.com.tw/Blogger/?Pid=1154
+		function getScrollTop(){
+			var bodyTop = 0;
+			if (typeof window.pageYOffset != "undefined") {
+				bodyTop = window.pageYOffset;
+
+			} else if (typeof document.compatMode != "undefined"
+						&& document.compatMode != "BackCompat") {
+				bodyTop = document.documentElement.scrollTop;
+
+			} else if (typeof document.body != "undefined") {
+				bodyTop = document.body.scrollTop;
+			}
+			return bodyTop
+		}
+
+		var showTypeWrapper = document.querySelector('#list-type-wrapper');
+		var showTypeWrapperOffsetTop = showTypeWrapper.getBoundingClientRect().top + getScrollTop();
+		function scrollNav(){
+			var ws = getScrollTop();
+			if(ws > showTypeWrapperOffsetTop){
+				showTypeWrapper.classList.add('is-fixed');
+			}else{
+				showTypeWrapper.classList.remove('is-fixed');
+			}
+		}
+		window.addEventListener('scroll', scrollNav);
+
+		// -----------------------------------
+		//IE old version tip
+		var userAgent = window.navigator.userAgent;  
+		if (userAgent.indexOf("MSIE 7.0")>0 || userAgent.indexOf("MSIE 8.0")>0 || userAgent.indexOf("MSIE 9.0")>0 || userAgent.indexOf("MSIE 10.0")>0) {
+			var ieTip = document.createElement('div');
+			ieTip.className = "ie-tip";
+
+			var ieTipSpan = document.createElement('span');
+			ieTipSpan.innerHTML = "不支援此版本瀏覽器，請開發者更換支援度較高之瀏覽器。<br><small>（用IE開發是要毀滅世界嗎？ಠ_ಠ）</small>";
+			ieTip.appendChild(ieTipSpan);
+
+			document.body.appendChild(ieTip);
+		}
+
+	})(window, document);
+</script>
+
+</body>
+
+</html>
