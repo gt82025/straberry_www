@@ -73,9 +73,12 @@
             <div class="product_article">
               <h1 class="pro_name">{{$v->name}}<img src="{{url('dist/images/sale.png')}}" alt="促銷商品"></h1>
               <h2 class="subtitle">{{$v->size}}</h2>
+              <div class="priceAndPic">
+              <div class="pdPic" style="background-image: url{{('dist/images/sale.png')}}"></div>
               <div class="pricebox">
                 <p class="price cost">原價 ${{number_format($v->price)}}</p>
                 <p class="price offer"> 會員價 <span>${{number_format($v->vip_price?$v->vip_price:$v->price)}}</span></p>
+              </div>
               </div>
               <p class="describe title">商品描述：</p>
               <p class="describe word">{!!nl2br($v->intro)!!}</p>

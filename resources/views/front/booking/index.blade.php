@@ -74,8 +74,17 @@
         </div>
       </div>
       <div class="cart_buttonbox">
-        <input class="linkbutton" type="reset"  value="取消重填"> 
-        <input class="linkbutton" type="submit"  value="完成送出">
+        <div class="linkbuttonCon">
+          <i class="buttonicon be-icon be-icon-closeicon"></i>
+        <input class="linkbutton" type="reset"  value="取消重填">   
+        
+        </div>
+        <div class="linkbuttonCon">
+        <i class="buttonicon be-icon be-icon-cartstep4"></i>
+          <input class="linkbutton" type="submit"  value="完成送出">
+        </div>
+        
+
         <!--
         <a class="linkbutton" href=""><i class="buttonicon be-icon be-icon-closeicon"></i><p>取消重填</p></a>
         <a class="linkbutton" href="booking_step2.html"><p>確定送出</p><i class="buttonicon be-icon be-icon-cartstep4"></i></a>

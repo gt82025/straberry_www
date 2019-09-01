@@ -87,18 +87,24 @@
           </div>
         </div>
         <div class="cart_buttonbox">
+        <div class="linkbuttonCon">  
+        <i class="buttonicon be-icon be-icon-closeicon"></i>
           <input class="linkbutton" type="reset"  value="取消重填">
+</div>
           <!--
           <a class="linkbutton" href=""><i class="buttonicon be-icon be-icon-closeicon"></i>
             <p>取消重填</p>
           </a>
           -->
+          <div class="linkbuttonCon">  
+          <i class="buttonicon be-icon be-icon-cartstep4"></i>
           <input class="linkbutton" type="submit"  value="完成送出">
           <!--
           <a class="linkbutton" href="index.html">
             <p>完成送出</p><i class="buttonicon be-icon be-icon-cartstep4"></i>
           </a>
--->
+--></div>
+        
         </div>
         </form>
 

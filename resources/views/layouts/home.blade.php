@@ -59,7 +59,7 @@
         <div class="menu_line"></div>
         <div class="menu_line"></div>
       </div>
-      <div class="mo_logo"><img class="color" src="{{url('dist/images/w_logo_color.svg')}}" alt="{{$nav['meta']->title}}"><img class="white" src="{{url('dist/images/w_logo_white.svg')}}" alt="{{$nav['meta']->title}}"></div>
+      <a class="mo_logo" href="https://farmertimex.com.tw/home"><img class="color" src="{{url('dist/images/w_logo_color.svg')}}" alt="{{$nav['meta']->title}}"><img class="white" src="{{url('dist/images/w_logo_white.svg')}}" alt="{{$nav['meta']->title}}"></a>
       <div class="headerbar">
         <div class="headercenter">
           <a class="pagelink" href="{{url('products')}}" title="熱門商品"><h4>熱門商品</h4></a>
@@ -81,7 +81,7 @@
             </div>
           </a>
           <a class="pagelink" href="{{url('member')}}" title="會員中心"><h4>會員中心</h4></a>
-          <a class="pagelink" href="{{url('about')}}" title="關於草莓"><h4>關於草莓</h4></a>
+          <a class="pagelink" href="{{url('about')}}" title="關於草菓"><h4>關於草菓</h4></a>
       </div>
       </div>
       <div class="menu menulogo">

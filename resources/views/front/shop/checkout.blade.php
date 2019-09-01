@@ -196,7 +196,7 @@
               class="buttonicon be-icon be-icon-buttonarrow"></i>
             <p>上一步</p>
           </a><a class="linkbutton" href="{{url('checkcheckout')}}">
-            <p>下一步</p><i class="buttonicon be-icon be-icon-buttonarrow"></i>
+            <p style="text-align: left;">下一步</p><i class="buttonicon be-icon be-icon-buttonarrow"></i>
           </a></div>
       </div>
     </div>

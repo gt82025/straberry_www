@@ -225,7 +225,11 @@
               class="buttonicon be-icon be-icon-buttonarrow"></i>
             <p>上一步</p>
           </a>
-          <input class="linkbutton" type="submit"  value="下一步">
+          <div class="linkbuttonCon">
+        <i class="buttonicon be-icon be-icon-buttonarrow next"></i>
+<input class="linkbutton next" type="submit"  value="下一步">
+
+        </div>
           <!--
           <a class="linkbutton" href="cart_step3.html">
             <p>下一步</p><i class="buttonicon be-icon be-icon-buttonarrow"></i>
