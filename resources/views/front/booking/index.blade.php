@@ -37,8 +37,8 @@
         </div>
         <div class="bi_box"><i class="bi_icon be-icon be-icon-clock"></i>
           <select name="session">
-            <option value="上午場">上午場 (AM09:00~PM12:00)</option>
-            <option value="下午場">下午場 (PM13:00~PM18:00)</option>
+            <option value="上午場 (AM09:00~PM12:00)">上午場 (AM09:00~PM12:00)</option>
+            <option value="下午場 (PM13:00~PM18:00)">下午場 (PM13:00~PM18:00)</option>
           </select>
         </div>
       </div>
@@ -48,29 +48,29 @@
         <h2 class="guesttitle book">預約資料</h2>
         <div class="guest_msg helf">
           <h6 class="msgtitle">信箱 E-mail</h6>
-          <input class="msgtext" type="text" name="email" value="{{ old('email') }}" required>
+          <input class="msgtext" type="text" name="email" value="{{ old('email')?old('email'):$user->email }}" required>
         </div>
         <div class="guest_msg helf right">
           <h6 class="msgtitle">姓名 Your Name</h6>
-          <input class="msgtext" type="text" name="name" required>
+          <input class="msgtext" type="text" name="name" value="{{ old('name')?old('name'):$user->name }}" required>
         </div>
         <div class="guest_msg helf">
           <h6 class="msgtitle">手機號碼 Mobile</h6>
-          <input class="msgtext" type="text" name="phone" required>
+          <input class="msgtext" type="text" name="phone" value="{{ old('phone')?old('phone'):$user->phone }}" required>
         </div>
         <div class="guest_msg helf right">
           <h6 class="msgtitle">預約人數 Numbers</h6>
           <div class="msgbuttonbox quantity">
             <button class="sub-btn quantity-down" onclick="return false;"><span>－</span></button>
             <button class="add-btn quantity-up" onclick="return false;"><span>＋ </span></button>
-            <input class="number" type="number" name="number" value="1" min="1" max="50">
+            <input class="number" type="number" name="number" value="{{ old('number')? old('number'):1 }}" min="1" max="50" required>
           </div>
         </div>
       </div>
       <div class="guestarea textarea">
         <div class="guest_msg">
           <h6 class="msgtitle">備註 Notice</h6>
-          <textarea class="msgtext" name="" cols="30" rows="10" name="remark"></textarea>
+          <textarea class="msgtext" cols="30" rows="10" name="remark">{{ old('remark') }}</textarea>
         </div>
       </div>
       <div class="cart_buttonbox">
@@ -105,10 +105,11 @@
       $('select[name=location]').change(function(){
         if($(this).val()){
           $.get("../api/disable/"+$(this).val(),function(data,status){
+           
             $("#datetime").flatpickr({
               minDate: new Date().fp_incr(2),
               maxDate: new Date().fp_incr(365),
-              disable: [data],
+              disable: JSON.parse(data),
             });
           });
         }
@@ -119,7 +120,7 @@
         //weekNumbers: true,
         minDate: new Date().fp_incr(2),
 			  maxDate: new Date().fp_incr(365),
-        disable: ['{{$disable}}'],
+        disable: [{!!$disable!!}],
         //disable: ["2019-07-30", "2019-07-29", "2019-07-28", new Date(2025, 4, 9) ],
    			dateFormat: "Y-m-d",
       });

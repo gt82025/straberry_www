@@ -139,7 +139,7 @@
                 data-css="msgtext" data-hidden="隱藏的縣市" data-required="1|0"></div>
               <div class="msgtext" data-role="district" data-label="選擇鄉鎮區" data-name="dist" data-value="{{ $user?$user->dist:'' }}"
                 data-css="" data-hidden="隱藏的縣市" data-required="1|0"></div>
-              <div class="msgtext" data-role="zipcode" data-name="zip" data-value="預設值" data-css=""
+              <div class="msgtext" data-role="zipcode" data-name="zip" data-value="郵遞區號" data-css=""
                 data-placeholder="欄位說明" data-type="text|number" data-min="最小值，type=number 時有效"
                 data-max="最大值，type=number 時有效" data-step="步進值，type=number 時有效" data-maxlength="最大長度，type=text 時有效"
                 data-pattern="Regular expression" data-readonly="1|0"></div>
@@ -180,6 +180,7 @@
             <h6 class="msgtitle">手機號碼 Mobile</h6>
             <input class="msgtext" type="text" name="to_phone" placeholder="請填入正確連絡電話" required>
           </div>
+          
           <div class="guest_msg helf">
             <h6 class="msgtitle">地址 Address</h6>
             <div class="textbox three twzipcode">
@@ -193,6 +194,7 @@
                 data-pattern="Regular expression" data-readonly="1|0"></div>
             </div>
           </div>
+
           <div class="guest_msg helf right">
             <h6 class="msgtitle"> </h6>
             <input class="msgtext" type="text" name="to_address" placeholder="請填入正確的街道地址" required>
@@ -247,8 +249,9 @@
 <script type="text/javascript">
   $(document).ready(function () {
     
-    TWzipCode();
-
+    
+    var twzipcode2 = new TWzipcode('.twzipcode', {});
+    
 
     $('.copyform').click(function(){
         console.log();
@@ -257,11 +260,17 @@
             $('input[name="to_name"]').val($('input[name="name"]').val());
             $('input[name="to_phone"]').val($('input[name="phone"]').val());
             $('input[name="to_address"]').val($('input[name="address"]').val());
+            $('select[name="to_city"]').val($('select[name="city"]').val());
+            $('select[name="to_dist"]').html('<option value="'+$('select[name="dist"]').val()+'" checked>'+$('select[name="dist"]').val()+'</option>');
+            $('input[name="to_zip"]').val($('input[name="zip"]').val());
+            
+
         }else{
             $('input[name="to_email"]').val('');
             $('input[name="to_name"]').val('');
             $('input[name="to_phone"]').val('');
             $('input[name="to_address"]').val('');
+
         }
        
     })
@@ -271,9 +280,7 @@
   });
 
 
-  function TWzipCode() {
-    var twzipcode = new TWzipcode('.twzipcode', {});
-  }
+  
 </script>
 
 @endsection

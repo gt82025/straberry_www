@@ -87,7 +87,9 @@ body {
         .product_content .productcenter .pro_box {
           width: calc(100% / 1 - 0px);
           margin: 35px 0px 0 0px;
-          border: 1px solid #bfbfbf; } }
+          border: 1px solid #bfbfbf;
+          border-radius: 20px;
+          overflow: hidden; } }
       .product_content .productcenter .pro_box .proimg {
         width: 100%;
         cursor: pointer;
@@ -477,7 +479,8 @@ body {
         border-radius: 30px;
         overflow: hidden;
         margin: 35px 0 35px 0;
-        background-color: rgba(240, 240, 240, 0.4); }
+        background-color: rgba(240, 240, 240, 0.4);
+        height: 63px; }
         @media screen and (max-width: 63.99875em) {
           .product_content .productcenter .pro_detail .product_article .pricebox {
             width: calc(100% - 0px - 0px - 0px); } }
@@ -498,20 +501,28 @@ body {
               .product_content .productcenter .pro_detail .product_article .pricebox .price:last-child {
                 border: none; } }
           .product_content .productcenter .pro_detail .product_article .pricebox .price.cost {
-            padding: 23px 0 5px 0; }
+            padding: 0;
+            height: 63px;
+            line-height: 63px; }
             @media screen and (max-width: 39.99875em) {
               .product_content .productcenter .pro_detail .product_article .pricebox .price.cost {
                 padding: 10px 0 10px 0;
                 border-bottom: 1px solid #bfbfbf; } }
           .product_content .productcenter .pro_detail .product_article .pricebox .price.offer {
-            padding: 5px 0 5px 0; }
+            padding: 0;
+            height: 63px;
+            line-height: 60px;
+            vertical-align: top; }
             @media screen and (max-width: 39.99875em) {
               .product_content .productcenter .pro_detail .product_article .pricebox .price.offer {
                 padding: 5px 0 10px 0; } }
           .product_content .productcenter .pro_detail .product_article .pricebox .price span {
             color: #c43632;
             font-size: 32px;
-            font-weight: 700; }
+            font-weight: 700;
+            display: inline-block;
+            height: 32px;
+            vertical-align: sub; }
             @media screen and (max-width: 39.99875em) {
               .product_content .productcenter .pro_detail .product_article .pricebox .price span {
                 font-size: 28px; } }
@@ -1011,6 +1022,9 @@ body {
           -webkit-transition: 0.4s;
           transition: 0.4s;
           background-color: #2b963d; }
+
+.productcenter .swiper-container .swiper-wrapper {
+  overflow: hidden; }
 
 /* Animate Style*/
 @-webkit-keyframes bg {

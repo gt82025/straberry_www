@@ -23,18 +23,19 @@
         <h2 class="guesttitle">登入 Login<a href="{{url('fbRedirect')}}"><i class="fbicon be-icon be-icon-fb"></i></a></h2>
         <div class="guest_msg">
           <h6 class="msgtitle">信箱 E-mail</h6>
-          <input class="msgtext" name="email" type="text">
+          <input class="msgtext" name="email" type="text" value="{{ old('email') }}">
         </div>
         <div class="guest_msg">
           <h6 class="msgtitle">密碼 Password</h6>
           <input class="msgtext" name="password" type="password">
+          <input name="back" type="hidden" value="{{$back?$back:old('back')}}">
         </div>
       </div>
       <div class="cart_buttonbox left">
         <input class="onlybutton" type="submit" value="確認送出"><a class="forget_psw" href="{{url('forget')}}"><i class="shapeicon be-icon be-icon-shape"></i>忘記密碼了嗎？</a>
       </div>
       </form>
-      @if(Session::get('cart'))
+      @if(Session::get('cart') && !Session::get('later') && $back != 'payment')
       <div class="cart_buttonbox left">
         <a class="forget_psw" href="{{url('later')}}" style="width:100%;text-align:center;">不註冊,繼續購物!</a>
       </div>

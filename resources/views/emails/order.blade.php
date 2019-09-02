@@ -4,9 +4,9 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h1>感謝您 使用尋莓園有機農場線上訂購優質商品</h1>
+        <h1>感謝您 使用草菓農場線上訂購優質商品</h1>
 		<p>親愛的 {{ $name }} 先生/小姐 您好：<br>
-		已經收到您的訂購資訊，感謝您使用尋莓園有機農場訂購優質商品，<br>
+		已經收到您的訂購資訊，感謝您使用草菓農場訂購優質商品，<br>
 		本通知函只是通知您本系統已經在{{ date('Y/m/d H:i:s') }}收到您的訂購訊息，
 		並供您再次自行核對之用，不代表交易已經完成。
 		</p>
@@ -25,7 +25,7 @@
 				<tr>
 				<td style="border:1px solid #c8c8c8">
 				
-					<img src="{{url($v['product']['cover'])}}" alt="{{$v['name']}}" width="100"> 
+					<img src="{{url($v['cover'])}}" alt="{{$v['name']}}" width="100"> 
 				
 				</td>
 				<td style="border:1px solid #c8c8c8">

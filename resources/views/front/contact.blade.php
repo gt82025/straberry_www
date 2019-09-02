@@ -40,11 +40,11 @@
           <div class="guest_msg helf right">
             <h6 class="msgtitle">性別 Gender</h6>
             <label class="radiobox">
-              <input type="radio" name="gender">
+              <input type="radio" name="gender" value="男性">
               <h6>男性</h6>
             </label>
             <label class="radiobox">
-              <input type="radio" name="Gender">
+              <input type="radio" name="gender" value="女性">
               <h6>女性</h6>
             </label>
           </div>
