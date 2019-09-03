@@ -5753,8 +5753,8 @@ html.is-reveal-open {
 /* Vendor Style*/
 @font-face {
   font-family: "icon";
-  src: url("../fonts/icons/icon.eot?1566826030162");
-  src: url("../fonts/icons/icon.eot?#iefix-1566826030162") format("embedded-opentype"), url("../fonts/icons/icon.woff2?1566826030162") format("woff2"), url("../fonts/icons/icon.woff?1566826030162") format("woff"), url("../fonts/icons/icon.ttf?1566826030162") format("truetype"), url("../fonts/icons/icon.svg?1566826030162#icon") format("svg"); }
+  src: url("../fonts/icons/icon.eot?1567545329341");
+  src: url("../fonts/icons/icon.eot?#iefix-1567545329341") format("embedded-opentype"), url("../fonts/icons/icon.woff2?1567545329341") format("woff2"), url("../fonts/icons/icon.woff?1567545329341") format("woff"), url("../fonts/icons/icon.ttf?1567545329341") format("truetype"), url("../fonts/icons/icon.svg?1567545329341#icon") format("svg"); }
 
 .be-icon:before {
   font-family: "icon";
@@ -5882,7 +5882,7 @@ footer .footer_contact .contact_center, footer .footer_contact .footerbar .barce
       width: calc(100% - 40px); } }
 
 .projecttop, .project_tab {
-  margin: 133px 0px 0 0; }
+  margin: 140px 0px 0 0; }
   @media screen and (max-width: 63.99875em) {
     .projecttop, .project_tab {
       margin: 52px 0px 0 0; } }
@@ -6338,6 +6338,8 @@ footer {
   margin: 100px 0 0 0;
   position: relative;
   z-index: 99; }
+  footer.mt0 {
+    margin-top: 0; }
   @media screen and (max-width: 39.99875em) {
     footer {
       margin: 20px 0 0 0; } }
@@ -6882,9 +6884,6 @@ footer {
         border-radius: 30px;
         -webkit-transition: 0.4s;
         transition: 0.4s; }
-        @media screen and (max-width: 63.99875em) {
-          .menu .menu_center .carcontent .carquantity {
-            display: none; } }
       .menu .menu_center .carcontent .caricon {
         float: right;
         color: #666;
@@ -7345,3 +7344,11 @@ footer {
   border-left: 0px;
   margin: 0 5px;
   background: #2b963d; }
+
+.alert.alert-danger {
+  display: inline-block;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: #dc3e3e; }
