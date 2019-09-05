@@ -1,62 +1,44 @@
 @extends('layouts.home')
 
-@section('title', '修改密碼 - ')
+@section('title', '嗨，'.$user->name.' - ')
 
-
+@section('css')
+<link type="text/css" rel="stylesheet" href="{{url('dist/css/cart.min.css')}}">
+@endsection
 
 @section('content')
-<section class="container-fluid mt-50">
-    <div class="categories-nav categories-list">
-        <ul class="text-center row">
-            <li class="col-sm-3"><a href="member" >修改資料</a></li>
-            <li class="col-sm-3"><a href="record">訂單紀錄</a></li>
-            <li class="col-sm-3"><a href="password" class="active">修改密碼</a></li>
-            <li class="col-sm-3"><a href="logout">會員登出</a></li>
-        </ul>
-        <div class="dropdown">
-            <button class="dropbtn">修改密碼 <i class="arrow icon down"></i></button>
-            <div class="dropdown-content">
-                <a href="member">修改資料</a>
-                <a href="record">訂單紀錄</a>
-                <a href="{{url('logout')}}">會員登出</a>
-            </div>
-        </div>
-    </div>
-    <div class="row login">
-        <div class="col-md-8 col-md-offset-2">
+<section class="projecttop"></section>
+<section class="cart_content small">
+    <div class="cartcenter">
         @if (count($errors) >0)
         <div class="alert alert-danger">
-          
           @if ($errors->has('password'))
           <strong>{{ $errors->first('password') }}</strong>
           @endif
-          
         </div>
         @endif
         <form accept-charset="UTF-8" action="{{url('reset')}}" class="main-form" id="new_spree_user" method="post">
         {!! csrf_field() !!}
-            <div class="bg">
-                <div class="form-group">
-                    <label for="exampleInput8">新密碼</label>
-                    <input type="password" class="form-control" id="exampleInput8" >
+        <div class="member_center">
+            <div class="guestarea noline">
+                <h2 class="guesttitle">重設密碼</h2>
+                <div class="guest_msg">
+                    <h6 class="msgtitle">新密碼 Password</h6>
+                    <input class="msgtext" type="password" name="password">
                 </div>
-
-                <div class="form-group">
-                    <label for="exampleInput6">確認新密碼</label>
-                    <input type="password" class="form-control" id="exampleInput6" >
+                <div class="guest_msg">
+                    <h6 class="msgtitle">確認密碼 Confirm Password</h6>
+                    <input class="msgtext" type="password" name="password_confirmation">
                 </div>
-                
-                
-                <div class="form-group login-submit">
-                    <input class="btn btn-default " name="commit" tabindex="3" type="submit" value="變更密碼">
-                    
-                </div>
-                
             </div>
-        </form>
+            <div class="cart_buttonbox left">
+                <input class="onlybutton" type="submit" value="確認送出">
+            </div>
         </div>
+        </form>
+        <h6 class="hasaccount back">
+            <a href="{{url('member')}}"> <i class="buttonicon be-icon be-icon-buttonarrow"></i>返回上一頁</a>
+        </h6>
     </div>
-
 </section>
-
 @endsection

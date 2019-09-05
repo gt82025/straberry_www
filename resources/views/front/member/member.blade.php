@@ -14,8 +14,9 @@
         <!-- 標籤分類文字不超過六個字-->
         <a class="swiper-slide active"><p>編輯會員資料</p></a>
         <a class="swiper-slide" href="{{url('record')}}"><p>訂單紀錄</p></a>
-          <a class="swiper-slide" href="{{url('booking/record')}}"><p>預約紀錄</p></a>
-          <a class="swiper-slide" href="{{url('logout')}}"><p>登出</p></a>
+        <a class="swiper-slide" href="{{url('booking/record')}}"><p>預約紀錄</p></a>
+        <a class="swiper-slide" href="{{url('reset')}}"><p>重設密碼</p></a>
+        <a class="swiper-slide" href="{{url('logout')}}"><p>登出</p></a>
       </div>
       <i class="arrowicon be-icon be-icon-prev"></i><i class="arrowicon be-icon be-icon-next"></i>
     </div>

@@ -16,6 +16,12 @@
         <strong> {{ session('error') }} </strong>
     </div>
     @endif
+    @if (session('status'))
+    <div class="alert alert-success">
+        <strong> {{ session('status') }} </strong>
+    </div>
+    @endif
+    
     <div class="member_center">
       <form id="form" method="post" action="{{ url('login') }}">
       {!! csrf_field() !!}
@@ -35,12 +41,22 @@
         <input class="onlybutton" type="submit" value="確認送出"><a class="forget_psw" href="{{url('forget')}}"><i class="shapeicon be-icon be-icon-shape"></i>忘記密碼了嗎？</a>
       </div>
       </form>
-      @if(Session::get('cart') && !Session::get('later') && $back != 'payment')
-      <div class="cart_buttonbox left">
-        <a class="forget_psw" href="{{url('later')}}" style="width:100%;text-align:center;">不註冊,繼續購物!</a>
-      </div>
-      @endif
+      
     </div>
+    
+    @if(Session::get('cart') && !Session::get('later') && $back != 'payment')
+    <div class="member_center" style="margin-top:10px;">
+      <div class="cart_buttonbox" style="margin-top:0px;">
+        <a class="forget_psw" href="{{url('later')}}" style="width:100%;text-align:center;width: 200px;
+    padding: 15px 0;display:block;float: initial;border-radius: 30px;background-color: #3d3d3d;color:#fff;margin:auto;
+    margin-bottom:10px;">首次購物,結帳去!</a>
+      </div>
+      <p style="text-align:center;">在您首次購物完成後，系統將自動升級為會員，密碼預設為您的手機號碼，下次購物時立即享有會員價</p>
+    </div>
+     @endif
+
+
+
     <h6 class="hasaccount">還沒有帳號嗎？<a href="{{url('register')}}" title="立即註冊">立即註冊<i class="buttonicon be-icon be-icon-buttonarrow"></i></a></h6>
   </div>
 </section>

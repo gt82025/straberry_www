@@ -47,11 +47,15 @@
   </div>
   @endforeach  
   <!--END NEXT-->
-  <!--
+  
   <div class="sharebox">
-    <h6>Share to</h6><a class="shareiconbox" href=""><i class="shareicon be-icon be-icon-fb"></i></a><a class="shareiconbox" href=""><i class="shareicon be-icon be-icon-line"></i></a><a class="shareiconbox" href=""><i class="shareicon be-icon be-icon-ig"></i></a>
+    <h6>Share to</h6>
+    <a class="shareiconbox goodshare" data-type="fb" ><i class="shareicon be-icon be-icon-fb"></i></a>
+    <a class="shareiconbox goodshare" data-type="line" ><i class="shareicon be-icon be-icon-line"></i></a>
+  <!--
+    <a class="shareiconbox" href=""><i class="shareicon be-icon be-icon-ig"></i></a>
   </div>
--->
+  -->
 
 </section>
 <section class="product_index">
@@ -212,4 +216,5 @@
 
 @section('script')
 <script type="text/javascript" src="{{url('dist/js/index.min.js')}}"></script>
+<script type="text/javascript" src="{{url('dist/js/share.js')}}"></script>
 @endsection
