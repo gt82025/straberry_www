@@ -26,9 +26,9 @@
   <div class="prevarrow img{{$k+1}} @if($k == 0)click @endif" data-click="click{{$k+1}}">
     <div class="prevbox">
       @if($k == 0)
-      <h6>0{{count($banner)}}</h6>
+      <h5>0{{count($banner)}}</h5>
       @else
-      <h6>0{{$k}}</h6>
+      <h5>0{{$k}}</h5>
       @endif
     </div>
   </div>
@@ -42,7 +42,7 @@
   <div class="nextarrow img{{$k}} @if($k == 1)click @endif" data-click="click{{$k+1}}">
   @endif
     <div class="nextbox">
-      <h6>0{{$k+1}}</h6>
+      <h5>0{{$k+1}}</h5>
     </div>
   </div>
   @endforeach  
@@ -75,15 +75,25 @@
         <div class="swiper-slide">
           <div class="pr_left">
             <div class="product_article">
-              <h1 class="pro_name">{{$v->name}}<img src="{{url('dist/images/sale.png')}}" alt="促銷商品"></h1>
-              <h2 class="subtitle">{{$v->size}}</h2>
+              <h1 class="pro_name pc">{{$v->name}}<img src="{{url('dist/images/sale.png')}}" alt="促銷商品"></h1>
+              <h2 class="subtitle pc">{{$v->size}}
+                <div class="pricebox">
+                  <p class="price cost">原價 ${{number_format($v->price)}}</p>
+                  <p class="price offer"> 會員價 <span>${{number_format($v->vip_price?$v->vip_price:$v->price)}}</span></p>
+                </div>
+                <div class="clear" style="clear:both;"></div>
+              </h2>
               <div class="priceAndPic">
-              <div class="pdPic" style="background-image: url{{('dist/images/sale.png')}}"></div>
-              <div class="pricebox">
-                <p class="price cost">原價 ${{number_format($v->price)}}</p>
-                <p class="price offer"> 會員價 <span>${{number_format($v->vip_price?$v->vip_price:$v->price)}}</span></p>
+                <div class="pdPic" style="background-image: url({{url($v->cover)}})"></div>
               </div>
-              </div>
+              <h1 class="pro_name mob">{{$v->name}}<img src="images/sale.png" alt=""></h1>
+              <h2 class="subtitle mob">{{$v->size}}
+                <div class="pricebox">
+                  <p class="price cost">原價 ${{number_format($v->price)}}</p>
+                  <p class="price offer"> 會員價 <span>${{number_format($v->vip_price?$v->vip_price:$v->price)}}</span></p>
+                </div>
+                <div class="clear" style="clear:both;"> </div>
+              </h2>
               <p class="describe title">商品描述：</p>
               <p class="describe word">{!!nl2br($v->intro)!!}</p>
               <div class="addcar">
@@ -167,7 +177,7 @@
 <section class="news_index">
   <div class="news_center">
     <div class="newscontent">
-      <h3 class="newstitle">草菓提供豐富的有機蔬果新知、新訊，讓您天天享有好心情</h3>
+      <h2 class="newstitle">草菓提供豐富的有機蔬果新知、新訊，讓您天天享有好心情</h2>
       <a class="morenews" href="{{url('news')}}"> 
         <div class="moreicon be-icon be-icon-buttonarrow"></div>
         <h6 class="moretext">了解更多  Learn More</h6>

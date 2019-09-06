@@ -94,7 +94,7 @@
             <div class="menu_line"></div>
             <div class="menu_line"></div>
           </div>
-          <div class="carcontent"><a class="carquantity" href="{{url('cart')}}">{{$nav['cartcount']}}</a><i class="caricon be-icon be-icon-cart"></i></div>
+          <a class="carcontent" href="{{url('cart')}}"><div class="carquantity" >{{$nav['cartcount']}}</div><i class="caricon be-icon be-icon-cart"></i></a>
           <div class="pagearea">
             <a class="pagelink" href="{{url('products')}}" title="熱門商品"><h5>熱門商品</h5></a>
             <a class="pagelink" href="{{url('booking')}}" title="預約採果"><h5>預約採果</h5></a>
