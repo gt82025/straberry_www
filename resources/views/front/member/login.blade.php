@@ -47,9 +47,7 @@
     @if(Session::get('cart') && !Session::get('later') && $back != 'payment')
     <div class="member_center" style="margin-top:10px;">
       <div class="cart_buttonbox" style="margin-top:0px;">
-        <a class="forget_psw" href="{{url('later')}}" style="width:100%;text-align:center;width: 200px;
-    padding: 15px 0;display:block;float: initial;border-radius: 30px;background-color: #3d3d3d;color:#fff;margin:auto;
-    margin-bottom:10px;">首次購物,結帳去!</a>
+        <a class="first_Shopping" href="{{url('later')}}" style="">首次購物,結帳去!</a>
       </div>
       <p style="text-align:center;">在您首次購物完成後，系統將自動升級為會員，密碼預設為您的手機號碼，下次購物時立即享有會員價</p>
     </div>

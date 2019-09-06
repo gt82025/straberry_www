@@ -25,11 +25,14 @@
           <input  class="numbering" type="text" id="myText" value="{{$order->order_number}}">
           <div class="shortLine"></div>
           
-          <h6 class="guestsubtitle no_border center">感謝您購買我們的產品。<br>為了方便您了解訂單狀態，可透過訂單編號進行查詢，或是加入草菓農場Line@，將可第一手掌握更多新訊。
+          <h6 class="guestsubtitle no_border center">感謝您購買我們的產品。<br>
+為了方便您了解訂單狀態，首次訂購後，系統會自動將您升級為會員，密碼預設為您的手機號碼，在下次購物時可立即享有會員價。
           </h6>
-          <div class="cart_buttonbox type4"><a href="javascript:void(0)" id="copyBtn">
+          <div class="cart_buttonbox type4">
+            <!-- <a href="javascript:void(0)" id="copyBtn">
               <P><i class="buttonicon be-icon be-icon-copy"></i>複製訂單編號</P>
-            </a><a href="{{url('record')}}">
+            </a> -->
+            <a href="{{url('record')}}">
               <P><i class="buttonicon be-icon be-icon-buttonarrow"></i>訂單查詢</P>
             </a></div>
         </div>
