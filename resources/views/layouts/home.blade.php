@@ -59,7 +59,7 @@
         <div class="menu_line"></div>
         <div class="menu_line"></div>
       </div>
-      <a class="mo_logo" href="https://farmertimex.com.tw/home"><img class="color" src="{{url('dist/images/w_logo_color.svg')}}" alt="{{$nav['meta']->title}}"><img class="white" src="{{url('dist/images/w_logo_white.svg')}}" alt="{{$nav['meta']->title}}"></a>
+      <div class="mo_logo"><img class="color" src="{{url('dist/images/w_logo_color.svg')}}" alt="{{$nav['meta']->title}}"><img class="white" src="{{url('dist/images/w_logo_white.svg')}}" alt="{{$nav['meta']->title}}"></div>
       <div class="headerbar">
         <div class="headercenter">
           <a class="pagelink" href="{{url('products')}}" title="熱門商品"><h4>熱門商品</h4></a>
@@ -94,7 +94,7 @@
             <div class="menu_line"></div>
             <div class="menu_line"></div>
           </div>
-          <a class="carcontent" href="{{url('cart')}}"><div class="carquantity" >{{$nav['cartcount']}}</div><i class="caricon be-icon be-icon-cart"></i></a>
+          <div class="carcontent"><a class="carquantity" href="{{url('cart')}}">{{$nav['cartcount']}}</a><i class="caricon be-icon be-icon-cart"></i></div>
           <div class="pagearea">
             <a class="pagelink" href="{{url('products')}}" title="熱門商品"><h5>熱門商品</h5></a>
             <a class="pagelink" href="{{url('booking')}}" title="預約採果"><h5>預約採果</h5></a>
@@ -128,13 +128,13 @@
             <div class="tact_content">
               <h1 class="tectname">預約/聯繫</h1>
               <p class="tact_text">若您想預約採果或是有其他問題需要協助，歡迎與我們聯繫，草菓農場將盡快為您服務</p>
-              <div class="contact_button"><a class="interchangeable_button" href="booking_step1.html"><i class="intericon be-icon be-icon-booking"></i>
-                  <div class="intername">預約採果</div></a><a class="interchangeable_button" href="contact.html"><i class="intericon be-icon be-icon-mail"></i>
+              <div class="contact_button"><a class="interchangeable_button" href="{{url('booking')}}"><i class="intericon be-icon be-icon-booking"></i>
+                  <div class="intername">預約採果</div></a><a class="interchangeable_button" href="{{url('contact')}}"><i class="intericon be-icon be-icon-mail"></i>
                   <div class="intername">聯絡我們</div></a></div>
               <div class="sharebox">
                 <h6>Follow Us</h6>
                 @foreach($nav['social'] as $k => $v)
-                <a class="shareiconbox" href="{{$v->url}}" title="{{$v->icon}}"><i class="shareicon be-icon {{$v->icon}}"></i></a>
+                <a class="shareiconbox" href="{{$v->url}}" title="{{$v->icon}}" target="_blank"><i class="shareicon be-icon {{$v->icon}}"></i></a>
                 @endforeach
                 
               </div>
@@ -208,7 +208,7 @@
               <div class="sharebox">
                 <h6>Follow Us</h6>
                 @foreach($nav['social'] as $k => $v)
-                <a class="shareiconbox" href="{{$v->url}}" title="{{$v->icon}}"><i class="shareicon be-icon {{$v->icon}}"></i></a>
+                <a class="shareiconbox" href="{{$v->url}}" title="{{$v->icon}}" target="_blank"><i class="shareicon be-icon {{$v->icon}}"></i></a>
                 @endforeach
               </div>
             </div>

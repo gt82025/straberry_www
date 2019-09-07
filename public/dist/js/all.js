@@ -164,19 +164,19 @@ if (b) {
         // }else if(t>scroll_top){//上滚  
         // 	$('header , .mo_logo , .carcontent').removeClass('scrolling');
         // }  
-        // setTimeout(function(){t = scroll_top;},0);    
+        // setTimeout(function(){t = scroll_top;},0); 
+
+        if (scroll > position) {
+          console.log("向下滾");
+          $('header , .mo_logo , .carcontent').addClass('scrolling'); //把當前的滾動位置賦值給起始滾動位置
+        } else {
+          console.log("向上滾"); //把當前的滾動位置賦值給起始滾動位置
+
+          $('header , .mo_logo , .carcontent').removeClass('scrolling');
+        }
       } else if (scroll_top <= header_bar_height) {
         $('header , .menu_button , .carcontent , .mo_logo').addClass('top');
         $('header , .menu_button , .carcontent , .mo_logo').removeClass('scroll');
-      }
-
-      if (scroll > position) {
-        console.log("向下滾");
-        $('header , .mo_logo , .carcontent').addClass('scrolling'); //把當前的滾動位置賦值給起始滾動位置
-      } else {
-        console.log("向上滾"); //把當前的滾動位置賦值給起始滾動位置
-
-        $('header , .mo_logo , .carcontent').removeClass('scrolling');
       }
 
       position = scroll; // $(document).on("scroll",function(){
