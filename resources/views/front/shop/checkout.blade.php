@@ -36,7 +36,7 @@
         @foreach($cart as $k => $v)
         <div class="tablebox">
           <div class="tablearticle content">
-            <h6 class="mo_title">內容</h6>
+            <h6 class="mo_title content">內容</h6>
             <div class="tablbox"><img class="propic" src="{{$v->cover}}" alt="{{$v->name}}">
               <div class="propic_text">
                 <h3 class="pro_name">{{$v->name}}</h3>
@@ -76,9 +76,9 @@
         </div>
         <div class="tablebox auto">
           <div class="end_pricetext">
-            <label class="radiobox">
+            
               <h6>{{$order['ship']['name']}}</h6>
-            </label>
+            
           </div>
           <div class="tablearticle amount">
             <h6>{{number_format($order['bill']['freight'])}}</h6>
@@ -109,9 +109,9 @@
         <div class="salebar type2">
           <h6 class="saletext">付款方式</h6>
           <div class="salebox">
-            <label class="radiobox">
+            
               <h6>{{$order['payment']}}</h6>
-            </label>
+           
           </div>
         </div>
         <div class="guestarea">
@@ -181,9 +181,9 @@
         <div class="salebar type2">
           <h6 class="saletext">收件/取貨</h6>
           <div class="salebox">
-            <label class="radiobox">
+            
               <h6>{{$order['ship_time']}}</h6>
-            </label>
+            
           </div>
         </div>
         <div class="guestarea textarea">

@@ -39,7 +39,7 @@
       @foreach($cart as $k => $v)
       <div class="tablebox pdContent">
         <div class="tablearticle content">
-          <h6 class="mo_title">內容</h6>
+          <h6 class="mo_title content">內容</h6>
           <div class="tablbox"><img class="propic" src="{{$v->cover}}" alt="{{$v->name}}">
             <div class="propic_text">
               <h3 class="pro_name">{{$v->name}}</h3>
@@ -48,13 +48,13 @@
           </div>
         </div>
         <div class="tablearticle price">
-          <h6 class="mo_title">單價</h6>
+          <h6 class="mo_title singlePrice">單價</h6>
           <div class="tablbox">
             <h6 class="singlePriceVal">{{number_format($v->selling)}}</h6>
           </div>
         </div>
         <div class="tablearticle quantity">
-          <h6 class="mo_title">數量</h6>
+          <h6 class="mo_title quantity">數量</h6>
           <div class="tablbox">
             <div class="buttonbox">
               <button onclick="return false;" class="sub-btn quantity-down"><span>－</span></button>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="tablearticle amount">
-          <h6 class="mo_title">小計</h6>
+          <h6 class="mo_title total">小計</h6>
           <div class="tablbox">
             <h6 class="totalPriceVal">{{number_format($v->total)}}</h6>
           </div>
@@ -79,8 +79,8 @@
           <h6 class="allPdTotalPrice">{{number_format($bill['subtotal'])}}</h6>
         </div>
       </div>
-      <div class="tablebox auto">
-        <div class="end_pricetext"> 
+      <div class="tablebox auto deliver">
+        <div class="end_pricetext "> 
           @foreach($bill['delivery'] as $k => $v)
           <label class="radiobox">
             <input type="radio" name="ship" value="{{$v->id}}" data-price="{{$v->freight}}" @if($k == 0)checked @endif>

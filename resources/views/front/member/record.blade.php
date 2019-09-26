@@ -18,7 +18,9 @@
           <p>訂單紀錄</p>
         </a><a class="swiper-slide" href="{{url('booking/record')}}">
           <p>預約紀錄</p>
-        </a><a class="swiper-slide" href="{{url('logout')}}">
+        </a>
+        <a class="swiper-slide" href="{{url('reset')}}"><p>重設密碼</p></a>
+        <a class="swiper-slide" href="{{url('logout')}}">
           <p>登出</p>
         </a>
       </div><i class="arrowicon be-icon be-icon-prev"></i><i class="arrowicon be-icon be-icon-next"></i>

@@ -100,7 +100,7 @@ right: 5px;
             <div class="textbox three twzipcode">
                 <div class="msgtext" data-role="county" data-label="請選擇縣市" data-name="city" data-value="預設值" data-css="msgtext" data-hidden="隱藏的縣市" data-required="1|0"></div>
                 <div class="msgtext" data-role="district" data-label="選擇鄉鎮區" data-name="dist" data-value="預設值" data-css="" data-hidden="隱藏的縣市" data-required="1|0"></div>
-                <div class="msgtext" data-role="zipcode" data-name="zip" data-value="郵遞區號" data-css="" data-placeholder="欄位說明" data-type="text|number" data-min="最小值，type=number 時有效" data-max="最大值，type=number 時有效" data-step="步進值，type=number 時有效" data-maxlength="最大長度，type=text 時有效" data-pattern="Regular expression" data-readonly="1|0"></div>
+                <div class="msgtext" data-role="zipcode" data-name="zip" data-value="郵遞區號" data-css="" data-placeholder="郵遞區號" data-type="text|number" data-min="最小值，type=number 時有效" data-max="最大值，type=number 時有效" data-step="步進值，type=number 時有效" data-maxlength="最大長度，type=text 時有效" data-pattern="Regular expression" data-readonly="1|0"></div>
             </div>  
           </div>
         </div>

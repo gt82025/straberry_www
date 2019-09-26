@@ -80,7 +80,7 @@
         
         </div>
         <div class="linkbuttonCon">
-        <i class="buttonicon be-icon be-icon-cartstep4"></i>
+        <i class="buttonicon be-icon be-icon-cartstep4 submit"></i>
           <input class="linkbutton" type="submit"  value="完成送出">
         </div>
         
