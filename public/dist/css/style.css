@@ -5427,6 +5427,7 @@ html.is-reveal-open {
   src: url("../fonts/icons/icon.eot?1567928310805");
   src: url("../fonts/icons/icon.eot?#iefix-1567928310805") format("embedded-opentype"), url("../fonts/icons/icon.woff2?1567928310805") format("woff2"), url("../fonts/icons/icon.woff?1567928310805") format("woff"), url("../fonts/icons/icon.ttf?1567928310805") format("truetype"), url("../fonts/icons/icon.svg?1567928310805#icon") format("svg"); }
 
+
 .be-icon:before {
   font-family: "icon";
   -webkit-font-smoothing: antialiased;
@@ -6059,6 +6060,7 @@ header {
       display: flex;
       -ms-flex-align: center;
           align-items: center; } }
+
   header .headerbar {
     width: 100%;
     position: relative;
@@ -6695,8 +6697,10 @@ footer {
       .menu.menupage.click .carcontent {
         position: absolute;
         top: 3px;
+
         transition: 0.4s;
         display: block; }
+
         .menu.menupage.click .carcontent .carquantity {
           background-color: #f0f0f0;
           transition: 0.4s; }
@@ -6778,7 +6782,9 @@ footer {
             top: 6px; } }
         @media screen and (max-width: 39.99875em) {
           .menu .menu_center .carcontent.top {
+
             top: auto; } }
+
       @media screen and (max-width: 63.99875em) {
         .menu .menu_center .carcontent.scroll {
           top: 6px; } }
@@ -7217,10 +7223,12 @@ footer {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
+
   margin-top: 10px;
   color: #dc3e3e;
   width: 100%;
   padding: .75rem 1.25rem; }
+
 
 .menu.menupage.click .menu_center .menu_button.click.top {
   top: 7px;
@@ -7229,6 +7237,7 @@ footer {
 .menu.menupage.click .menu_center .carcontent.scroll.scrolling {
   top: 0; }
 
+
 .banner_content .linkbutton p {
   display: block;
   width: 100%;
@@ -7236,3 +7245,4 @@ footer {
   height: 100%;
   padding-left: 30px;
   line-height: 41px; }
+

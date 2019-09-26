@@ -21,6 +21,7 @@
         <a class="swiper-slide " href="{{url('member')}}"><p>編輯會員資料</p></a>
         <a class="swiper-slide" href="{{url('record')}}"><p>訂單紀錄</p></a>
           <a class="swiper-slide active"><p>預約紀錄</p></a>
+          <a class="swiper-slide" href="{{url('reset')}}"><p>重設密碼</p></a>
           <a class="swiper-slide" href="{{url('logout')}}"><p>登出</p></a>
       </div>
       <i class="arrowicon be-icon be-icon-prev"></i><i class="arrowicon be-icon be-icon-next"></i>
@@ -43,16 +44,18 @@
 -->
         </div>
         @foreach($booking as $k => $v)
-        <div class="tablebox ">
+        
+        <a class="tablebox" href="{{url('booking/record',$v->id)}}">
           <h6 class="date"> <span class="motitle">預約日期</span><span>{{$v->date}}</span></h6>
-          <h6 class="site"> <a href="{{url('booking/record',$v->id)}}"><span class="motitle">場地</span><span>{{$v->location}}<i
-                  class="pinicon be-icon be-icon-pin"></i></span></a></h6>
+          <h6 class="site"> <span class="motitle">場地</span><span>{{$v->location}}<i
+                  class="pinicon be-icon be-icon-pin"></i></span></h6>
           <h6 class="session"> <span class="motitle">場次</span><span>{{$v->session}}</span></h6>
           <h6 class="number"><span class="motitle">人數</span><span>{{$v->number}}</span></h6>
           <!--
           <h6 class="status"> <span class="motitle">預約狀態</span><span>待付款</span></h6>
             -->
-        </div>
+        </a>
+        
         @endforeach
         
       </div>
