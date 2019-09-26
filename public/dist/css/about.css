@@ -17,6 +17,9 @@
       width: 950px; } }
   @media screen and (max-width: 63.99875em) {
     .aboutcenter {
+      width: calc(100% - 60px); } }
+  @media screen and (max-width: 39.99875em) {
+    .aboutcenter {
       width: calc(100% - 40px); } }
 
 /* Container Style*/
@@ -50,9 +53,8 @@ h2.project_title {
 p {
   font-size: 18px;
   font-weight: normal;
-  letter-spacing: 1px;
-  line-height: 1.5;
-  color: #666;
+  letter-spacing: 0;
+  line-height: 1.6;
   padding-top: 30px; }
   @media screen and (max-width: 37.5em) {
     p {
@@ -67,7 +69,6 @@ body {
 .aboutcenter {
   margin: 0 auto;
   position: relative;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -222,12 +223,10 @@ body {
       margin-right: 0;
       height: 100%;
       margin-left: auto;
-      display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center; }
+      -ms-flex-align: center;
+          align-items: center; }
       @media screen and (max-width: 74.99875em) {
         .no_Pesticide .container .right {
           padding-right: 50px; } }
@@ -276,16 +275,14 @@ body {
     max-width: 1120px;
     margin-right: auto;
     margin-left: auto;
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
     @media screen and (max-width: 37.5em) {
       .farmerAge .container {
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center; } }
+        -ms-flex-pack: center;
+            justify-content: center; } }
     .farmerAge .container .linebox {
       width: 100%;
       height: 1px;
@@ -304,8 +301,7 @@ body {
       position: relative; }
       .farmerAge .container .stepContainer .stepMain {
         position: relative;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box; }
+        box-sizing: border-box; }
         @media screen and (max-width: 75em) {
           .farmerAge .container .stepContainer .stepMain {
             width: 90%; } }
@@ -330,20 +326,14 @@ body {
           top: 50%;
           cursor: pointer;
           line-height: 55px;
-          -webkit-transition-property: all;
           transition-property: all;
-          -webkit-transition-duration: 0.5s;
-                  transition-duration: 0.5s;
-          -webkit-transition-delay: 0s;
-                  transition-delay: 0s; }
+          transition-duration: 0.5s;
+          transition-delay: 0s; }
           .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-next:before {
             color: #666;
-            -webkit-transition-property: all;
             transition-property: all;
-            -webkit-transition-duration: 0.5s;
-                    transition-duration: 0.5s;
-            -webkit-transition-delay: 0s;
-                    transition-delay: 0s; }
+            transition-duration: 0.5s;
+            transition-delay: 0s; }
           .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-next:hover {
             background-color: #2b963d; }
             .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-next:hover:before {
@@ -362,27 +352,20 @@ body {
           z-index: 50;
           left: -25px;
           top: 50%;
-          -webkit-transform: scaleX(1);
           transform: scaleX(1);
           cursor: pointer;
-          -webkit-transition-property: all;
           transition-property: all;
-          -webkit-transition-duration: 0.5s;
-                  transition-duration: 0.5s;
-          -webkit-transition-delay: 0s;
-                  transition-delay: 0s;
+          transition-duration: 0.5s;
+          transition-delay: 0s;
           line-height: 55px; }
           @media screen and (max-width: 37.5em) {
             .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-prev {
               left: 25px; } }
           .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-prev:before {
             color: #666;
-            -webkit-transition-property: all;
             transition-property: all;
-            -webkit-transition-duration: 0.5s;
-                    transition-duration: 0.5s;
-            -webkit-transition-delay: 0s;
-                    transition-delay: 0s; }
+            transition-duration: 0.5s;
+            transition-delay: 0s; }
           .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-prev:hover {
             background-color: #2b963d; }
             .farmerAge .container .stepContainer .stepMain .be-icon.be-icon-prev:hover:before {
@@ -415,7 +398,6 @@ body {
           -ms-flex-wrap: wrap;
               flex-wrap: wrap; } }
       .farmerAge .container .stepMain .swiper-slide.step {
-        display: -webkit-box;
         display: -ms-flexbox;
         display: flex; }
         @media screen and (max-width: 37.5em) {
@@ -437,8 +419,7 @@ body {
           width: 49%;
           background-color: #f0f0f0;
           padding: 85px;
-          -webkit-box-sizing: border-box;
-                  box-sizing: border-box; }
+          box-sizing: border-box; }
           @media screen and (max-width: 64.0625em) {
             .farmerAge .container .stepMain .swiper-slide.step .right {
               padding: 60px; } }
@@ -590,7 +571,6 @@ body {
           width: 120px;
           height: 2px;
           border-radius: 10px;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           background-color: #bfbfbf;
           position: absolute;
@@ -605,7 +585,6 @@ body {
           width: 0px;
           height: 2px;
           border-radius: 10px;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           background-color: #bfbfbf;
           position: absolute;
@@ -618,13 +597,11 @@ body {
               background-color: #2b963d; } }
         .guarantee .aboutcenter .guslider .gu_prevarrow:hover {
           text-shadow: rgba(0, 0, 0, 0.3) 0.1em 0.1em 0.2em;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           color: #2b963d;
           transition: 0.4s; }
           .guarantee .aboutcenter .guslider .gu_prevarrow:hover .prevbox:after {
             width: 120px;
-            -webkit-transition: 0.4s;
             transition: 0.4s;
             background-color: #2b963d; }
             @media screen and (max-width: 63.99875em) {
@@ -638,7 +615,6 @@ body {
         top: calc(50% - 15px);
         color: #bfbfbf;
         cursor: pointer;
-        -webkit-transition: 0.4s;
         transition: 0.4s; }
         @media screen and (max-width: 74.99875em) {
           .guarantee .aboutcenter .guslider .gu_nextarrow {
@@ -656,7 +632,6 @@ body {
           width: 120px;
           height: 2px;
           border-radius: 10px;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           background-color: #bfbfbf;
           position: absolute;
@@ -671,7 +646,6 @@ body {
           width: 0px;
           height: 2px;
           border-radius: 10px;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           background-color: #bfbfbf;
           position: absolute;
@@ -684,13 +658,11 @@ body {
               background-color: #2b963d; } }
         .guarantee .aboutcenter .guslider .gu_nextarrow:hover {
           text-shadow: rgba(0, 0, 0, 0.3) 0.1em 0.1em 0.2em;
-          -webkit-transition: 0.4s;
           transition: 0.4s;
           color: #2b963d;
           transition: 0.4s; }
           .guarantee .aboutcenter .guslider .gu_nextarrow:hover .nextbox:after {
             width: 120px;
-            -webkit-transition: 0.4s;
             transition: 0.4s;
             background-color: #2b963d; }
       .guarantee .aboutcenter .guslider .swiper-pagination {
@@ -709,29 +681,21 @@ body {
   left: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.65);
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  transform: translateX(100%);
   opacity: 0;
-  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s; }
+  transition-duration: 0.8s;
+  transition-delay: 0s; }
   .guaranteeBox.open {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1; }
   .guaranteeBox .close {
     position: absolute;
@@ -739,63 +703,46 @@ body {
     height: 50px;
     right: 25px;
     top: 25px;
-    -webkit-transition-property: all;
     transition-property: all;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
     cursor: pointer; }
     .guaranteeBox .close .stick1 {
       position: absolute;
       width: 100%;
       height: 3px;
       background-color: #fff;
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
+      transform: rotate(45deg);
       top: calc(50% - 1.5px);
       left: 0;
-      -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0);
-              box-shadow: 0 0 30px rgba(255, 255, 255, 0);
-      -webkit-transition-property: all;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0);
       transition-property: all;
-      -webkit-transition-duration: 0.5s;
-              transition-duration: 0.5s;
-      -webkit-transition-delay: 0s;
-              transition-delay: 0s; }
+      transition-duration: 0.5s;
+      transition-delay: 0s; }
     .guaranteeBox .close .stick2 {
       position: absolute;
       width: 100%;
       height: 3px;
       background-color: #fff;
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
+      transform: rotate(-45deg);
       top: calc(50% - 1.5px);
       left: 0;
-      -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0);
-              box-shadow: 0 0 30px rgba(255, 255, 255, 0);
-      -webkit-transition-property: all;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0);
       transition-property: all;
-      -webkit-transition-duration: 0.5s;
-              transition-duration: 0.5s;
-      -webkit-transition-delay: 0s;
-              transition-delay: 0s; }
+      transition-duration: 0.5s;
+      transition-delay: 0s; }
     .guaranteeBox .close:hover {
-      -webkit-transform: rotate(15deg);
-              transform: rotate(15deg); }
+      transform: rotate(15deg); }
       .guaranteeBox .close:hover .stick1 {
-        -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
       .guaranteeBox .close:hover .stick2 {
-        -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
   .guaranteeBox .container {
     width: auto;
     max-width: 1000px;
     height: auto;
     max-height: 90vh;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
     @media screen and (max-width: 28.125em) {
       .guaranteeBox .container {
         width: 85%; } }
@@ -809,12 +756,9 @@ body {
   background-color: #000;
   position: relative; }
   .swiper-slide.gu img {
-    -webkit-transition-property: all;
     transition-property: all;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s; }
+    transition-duration: 0.5s;
+    transition-delay: 0s; }
   .swiper-slide.gu:before {
     content: '';
     display: block;
@@ -831,12 +775,9 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;
-    -webkit-transition-property: all;
     transition-property: all;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s; }
+    transition-duration: 0.5s;
+    transition-delay: 0s; }
   .swiper-slide.gu:hover img {
     opacity: 0.7; }
   .swiper-slide.gu:hover:before {
@@ -849,10 +790,11 @@ body {
 .guarantee .project_title {
   margin-bottom: 30px; }
 
+p.boxname, p.rese_left, p.rese_right, p.boxtext, p.tact_text {
+  padding-top: 0;
+  letter-spacing: 0; }
+
 /* Animate Style*/
-@-webkit-keyframes bg {
-  0% { }
-  100% { } }
 @keyframes bg {
   0% { }
   100% { } }
