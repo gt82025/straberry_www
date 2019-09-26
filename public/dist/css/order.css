@@ -17,9 +17,6 @@
       width: 950px; } }
   @media screen and (max-width: 63.99875em) {
     .order_content .ordercenter {
-      width: calc(100% - 60px); } }
-  @media screen and (max-width: 39.99875em) {
-    .order_content .ordercenter {
       width: calc(100% - 40px); } }
 
 /* Container Style*/
@@ -60,8 +57,7 @@ body {
         margin: 0 auto 40px auto; } }
     @media screen and (max-width: 39.99875em) {
       .order_content .ordercenter {
-        margin: 0 auto 20px auto;
-        width: 100%; } }
+        margin: 0 auto 20px auto; } }
     .order_content .ordercenter .member_pagename {
       color: #2b963d;
       text-align: center; }
@@ -80,6 +76,7 @@ body {
         margin: 0 0 15px 0;
         text-align: center; }
       .order_content .ordercenter .member_center .tablebox {
+        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         border: 1px solid #e5e5e5;
@@ -113,6 +110,7 @@ body {
               text-align: left;
               padding: 0px 0;
               border-left: none;
+              display: -webkit-box;
               display: -ms-flexbox;
               display: flex; } }
           .order_content .ordercenter .member_center .tablebox h6:first-child {
@@ -170,6 +168,7 @@ body {
           .order_content .ordercenter .member_center .tablebox.unpay h6.pay {
             color: #c43632; }
       .order_content .ordercenter .member_center.reservation .tablebox {
+        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         border: 1px solid #e5e5e5; }
@@ -202,6 +201,7 @@ body {
               text-align: left;
               padding: 0px 0;
               border-left: none;
+              display: -webkit-box;
               display: -ms-flexbox;
               display: flex; } }
           .order_content .ordercenter .member_center.reservation .tablebox h6:first-child {
@@ -228,13 +228,16 @@ body {
               @media screen and (max-width: 63.99875em) {
                 .order_content .ordercenter .member_center.reservation .tablebox h6.site a {
                   width: 100%;
+                  display: -webkit-box;
                   display: -ms-flexbox;
                   display: flex; } }
               .order_content .ordercenter .member_center.reservation .tablebox h6.site a span .pinicon {
                 color: #666666;
+                -webkit-transition: 0.4s;
                 transition: 0.4s; }
               .order_content .ordercenter .member_center.reservation .tablebox h6.site a:hover span .pinicon {
                 color: #2b963d;
+                -webkit-transition: 0.4s;
                 transition: 0.4s; }
           .order_content .ordercenter .member_center.reservation .tablebox h6.session {
             width: calc((100% - 135px * 3) / 2); }
@@ -310,6 +313,7 @@ body {
           position: relative;
           color: #ffffff;
           background-color: #3d3d3d;
+          -webkit-transition: 0.4s;
           transition: 0.4s; }
           @media screen and (max-width: 63.99875em) {
             .order_content .ordercenter .member_center .guest_search .searchbox .buttonbox {
@@ -317,12 +321,14 @@ body {
           .order_content .ordercenter .member_center .guest_search .searchbox .buttonbox .searchicon {
             color: #ffffff; }
             .order_content .ordercenter .member_center .guest_search .searchbox .buttonbox .searchicon::before {
-              transform: translateY(3px);
+              -webkit-transform: translateY(3px);
+                      transform: translateY(3px);
               margin-right: 10px; }
           .order_content .ordercenter .member_center .guest_search .searchbox .buttonbox .searchtext {
             margin: 10px 0; }
           .order_content .ordercenter .member_center .guest_search .searchbox .buttonbox:hover {
             background-color: #2b963d;
+            -webkit-transition: 0.4s;
             transition: 0.4s; }
       .order_content .ordercenter .member_center.list {
         display: none; }
@@ -332,10 +338,10 @@ body {
 .ordercenter .ordercenter .member_center .tabletitle {
   text-align: center; }
 
-.order_content .ordercenter .member_center.reservation a.tablebox {
-  cursor: pointer; }
-
 /* Animate Style*/
+@-webkit-keyframes bg {
+  0% { }
+  100% { } }
 @keyframes bg {
   0% { }
   100% { } }
