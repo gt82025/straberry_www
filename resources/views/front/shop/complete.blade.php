@@ -46,6 +46,13 @@
       </div>
     </div>
   </section>
+
+  @if($market) 
+  <!-- Offer Conversion: -->
+  <iframe src="https://marktamerica.go2cloud.org/aff_l?offer_id=12597&adv_sub={{$order->order_number}}&amount={{$order->TradeAmt}}" width="1" height="1" /></iframe>
+  <!-- // End Offer Conversion -->
+  @endif
+
 @endsection
 
 @section('script')

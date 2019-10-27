@@ -23,6 +23,9 @@ class CommonController extends Controller
         $result['cartcount'] = Session::has('cart')?count(Session::get('cart')):0;
         $result['product'] = ProductCategory::where('published', 1)->orderBy('sort', 'asc')->get();
         $result['post'] = PostCategory::where('published', 1)->orderBy('sort', 'asc')->get();
+
+        if(isset($_GET['RID']) ) Session::put('RID', $_GET['RID']);
+        if(isset($_GET['Click_ID'])) Session::put('Click_ID', $_GET['Click_ID']);
         return $result;
     }
     

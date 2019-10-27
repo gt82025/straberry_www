@@ -29,7 +29,7 @@ class MemberController extends Controller
 		$common = new CommonController;
         $nav = $common->common();  
         $user = Auth::user();
-        $booking = BookDetail::where('published', 1)->where('email', $user->email)->orderBy('date', 'asc')->get();
+        $booking = BookDetail::where('published', 1)->where('user_id', $user->id)->orderBy('date', 'asc')->get();
       
 		return view('front.member.booking',
         	[
@@ -229,7 +229,7 @@ class MemberController extends Controller
 				'password' => $newpassword,
 			];
 			
-           $from = ['email'=>'no-reply@farmertimex.com.tw',
+           $from = ['email'=>'farmertimex@farmertimex.com.tw',
 				'name'=>'草菓農場線上客服',
                  'subject'=>'會員密碼重製通知信'
                 ];
@@ -254,15 +254,18 @@ class MemberController extends Controller
     }
 	
 	public function showResetForm(){
-	
-        $meta = Meta::find(1);
-        //$footer_post = Post::where('published', 1)->with('category')->orderBy('published_at','desc')->take(5)->skip(0)->get();
-        $product_categories = ProductCategory::where('published', 1)->orderBy('sort', 'asc')->get();
+        $user = Auth::user();
+        $common = new CommonController;
+        $nav = $common->common(); 
+       
+      
+
+       
         return view('front.member.reset',
-            [
-                'meta' => $meta,
-                'product_categories' => $product_categories,
-            ]
+        	[
+                'nav' => $nav,
+                'user' => $user,
+        	]
 
         );
     }
@@ -351,8 +354,7 @@ class MemberController extends Controller
         $nav = $common->common(); 
         $user = Auth::user();
 
-        if($user->city)
-        $user->address = $user->zip.$user->city.$user->dist.$user->address;
+        
         /*
         $orders = Order::with(['category','detail' => function($query){
 			$query->with(['product' => function($query2){
@@ -377,10 +379,10 @@ class MemberController extends Controller
         return redirect('member');
     }
 
-    public function showLoginForm(){
-     
+    public function showLoginForm($id = null){
+        $back = $id;
         if (Auth::check())
-        {
+        {   
             return redirect('member');
         }
         $common = new CommonController;
@@ -388,7 +390,7 @@ class MemberController extends Controller
         return view('front.member.login',
             [
                 'nav' => $nav,
-                //'social' => $social,
+                'back' => $back,
             ]
 
         );
@@ -437,16 +439,17 @@ class MemberController extends Controller
 			$user->last_login_ip = \Request::ip();
 			
             $user->save();
-            if(Session::has('cart') || count(Session::get('cart')) > 1 )
-            return redirect('cart');
-            
-            return redirect()->intended('member');
+            //if(Session::has('cart') || count(Session::get('cart')) > 1 )
+            //return redirect('cart');
+            $back = $request->back?$request->back:'member';
+            //return redirect()->back();
+            return redirect()->intended($back);
         }else{
             $user = User::where('email', $request->email)->where('published', 1)->first();
             $msg = $user?'密碼輸入錯誤':'查無此帳號或尚未開通';
 			$status = 'error';
            
-            return redirect('login')->with($status, $msg);  
+            return redirect('login')->with($status, $msg)->withInput();  
         }
     }
 
@@ -498,7 +501,7 @@ class MemberController extends Controller
     protected function resetValidator(array $data)
     {
         $messages = [
-            'password.confirmed' => '與新密碼不符',
+            'password.confirmed' => '確認密碼與新密碼不符',
             'password.required' => '密碼為必填欄位',
 			'password.min' => '密碼長度不足八碼'
         ];

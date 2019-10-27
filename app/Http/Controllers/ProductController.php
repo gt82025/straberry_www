@@ -17,6 +17,37 @@ use App\Model\Product;
 
 class ProductController extends Controller
 {   
+
+	public function showTwShopCom($id = null){
+		$products = Product::where('published', 1)->with('category')->orderBy('sort', 'asc')->get();
+		//return $products;
+		$xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+		$xml .= "<Products> \n";
+		foreach ($products as $k => $v) {
+			$xml .= "<Product> \n";
+			$xml .= "<SKU>$v->id</SKU> \n";
+			$xml .= "<Name>$v->name</Name> \n";
+			$xml .= "<Description>$v->intro</Description> \n";
+			$xml .= "<URL>https://farmertimex.com.tw/product/info/$v->id</URL> \n";
+			$xml .= "<Price>$v->price</Price> \n";
+			$xml .= "<LargeImage>https://farmertimex.com.tw$v->cover</LargeImage> \n";
+			$xml .= "<SalePrice>$v->vip_price</SalePrice> \n";
+			$xml .= "<UPC> </UPC> \n";
+			$xml .= "<ISBN> </ISBN> \n";
+			$xml .= "<MPN> </MPN> \n";
+			$xml .= "<Manufacturer>農夫時代</Manufacturer> \n";
+			$xml .= "<Brand>草菓農場</Brand> \n";
+			$xml .= "<Category>分類</Category> \n";
+			$xml .= "<EAN> </EAN> \n";
+			$xml .= "<Condition>New</Condition> \n";
+			$xml .= "</Product> \n";
+		}
+		$xml .= "</Products>\n";
+        return response($xml,200)->header("Content-type","text/xml");
+
+	}
+
+	
 	
 	public function showProduct($id = null){
 		$common = new CommonController;

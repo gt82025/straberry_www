@@ -53,11 +53,12 @@
     <div class="guslider">
       <div class="swiper-container gu_slider">
         <div class="swiper-wrapper">
-          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-copy@2x.png')}}"></div>
-          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-copy@2x2.png')}}"></div>
-          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-copy@2x.png')}}"></div>
-          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-copy@2x2.png')}}"></div>
-          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-copy@2x.png')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-01-1-min.jpg')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-01-2-min.jpg')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-02-1-min.jpg')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-02-2-min.jpg')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-02-3-min.jpg')}}"></div>
+          <div class="swiper-slide gu"><img src="{{url('dist/images/bitmap-02-4-min.jpg')}}"></div>
         </div>
       </div>
       <div class="swiper-pagination"> </div>
@@ -178,6 +179,6 @@
 
     };
     GuaranteeLight();
-  });  
+  });
 </script>
 @endsection

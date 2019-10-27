@@ -97,6 +97,10 @@
               <input type="radio" name="payment" value="虛擬ATM付款">
               <h6>虛擬ATM付款</h6>
             </label>
+            <label class="radiobox">
+              <input type="radio" name="payment" value="台灣PAY">
+              <h6>台灣PAY</h6>
+            </label>
             <!--
               <label class="radiobox">
                 <input type="radio" name="payment" value="信用卡" >

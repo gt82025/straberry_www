@@ -14,7 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'allPayReturn',
-        'atmPayReturn',
+        'fcPayReturn',
+        'fcATMReturn',
         'allpay/*',
         'atmPayAccount',
         'ServerReplyURL',

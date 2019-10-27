@@ -11,7 +11,7 @@ use Crypt;
 use Mail;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CartPluginController;
-use App\Http\Controllers\AioSDK\CreateOrder;
+use App\Http\Controllers\AioSDK\FcPayController;
 //use App\Http\Controllers\AioSDK\ChoiceMap;
 use App\Model\Post;
 use App\Model\Meta;
@@ -62,7 +62,13 @@ class CartController extends Controller
 		//$footer_post = Post::where('published', 1)->with('category')->orderBy('published_at','desc')->take(5)->skip(0)->get();
 		$order = Session::get('order'); 
 		$order = Order::where('order_number', $order['order_number'])->first();
+
+		$market = false;
+		if(Session::has('RID') && Session::has('Click_ID'))$market = true;
 		
+		
+
+
 		
 		//if( $order['payment']  == 'ATM轉帳' )
 		Session::forget('bill');
@@ -75,7 +81,8 @@ class CartController extends Controller
             [
                 'nav' => $nav,
 				//'social' => $social,
-				'order' => $order
+				'order' => $order,
+				'market' => $market
             ]
 
         );
@@ -130,7 +137,7 @@ class CartController extends Controller
 		];
 
 		//return $order;
-		$from = ['email'=> 'no-reply@farmertimex.com.tw',
+		$from = ['email'=> 'farmertimex@farmertimex.com.tw',
 			'name'=> '草菓農場 線上自動回覆',
 			'subject'=>'訂單編號：'.$order->order_number.'付款狀態確認通知'
 		];
@@ -140,7 +147,7 @@ class CartController extends Controller
 		//寄出信件
 		$emails = Email::where('published', 1)->get();
 	
-		Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$emails,$order) {
+		Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$order) {
 			$message->from($from['email'], $from['name']);
 			foreach ($emails as $k => $v) {
                 # code...
@@ -151,6 +158,179 @@ class CartController extends Controller
 		
 		return '1|OK';
 	}
+	public function fcATMReturn(Request $request){
+
+	
+		$order = Order::where('MerchantTradeNo', $request->INACCTNO)->first();
+		
+
+		$order->MerchantTradeNo = $request->INACCTNO; //訂單編號
+		$order->RtnCode = $request->HCODE == 0?'付款成功':'付款失敗'; //交易狀態
+		$order->RtnMsg = $request->HCODE; //交易訊息
+		$order->TradeNo = ''; //綠界的交易編號
+		$order->TradeAmt = $request->AMT; //交易金額
+		$order->PaymentDate = $request->TXDATE; //付款時間
+		$order->PaymentType = 'webATM'; //付款方式
+		
+		$market = false;
+		if(Session::has('RID') && Session::has('Click_ID')){
+			$order->RID = Session::get('RID'); //Click_ID
+			$order->Click_ID = Session::get('Click_ID'); //Click_ID
+			$market = $request->HCODE == 0?true:false;
+		}
+
+
+		$order->save();
+		
+
+		$data = [
+			'name' => $order->name,
+			'email' => $order->email,
+			'order_number' => $order->order_number,
+			'payment_date' => $order->PaymentDate,
+			'payment_type' => $order->PaymentType,
+			'payment_result' => $order->RtnCode,
+			'merchant_trade' => $order->MerchantTradeNo,
+			'total' => $order->TradeAmt
+		];
+	
+			
+				//return $order;	
+
+		$from = ['email'=> 'farmertimex@farmertimex.com.tw',
+			'name'=> '草菓農場 線上自動回覆',
+			'subject'=>'訂單編號：'.$order->order_number.'付款狀態確認通知'
+		];
+		//填寫收信人信箱
+		$to = ['email'=>$data['email'],'name'=>$data['name']];
+		//信件的內容(即表單填寫的資料)
+		//寄出信件
+		//$emails = Email::where('published', 1)->get();
+	
+		Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$order) {
+			$message->from($from['email'], $from['name']);
+		//	foreach ($emails as $k => $v) {
+                # code...
+        //        $message->to($to['email'], $to['name'])->cc($v->email, $v->name)->subject('訂單編號：'.$order->order_number.'付款狀態確認通知');
+       //     }
+			$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用草菓農場線上訂購優質商品');
+		});
+	
+		
+		//Session::forget('bill');
+		//Session::forget('cart');
+		//Session::forget('order');
+
+		//return 'TEST';
+		return view('front.shop.complete',
+            [
+                'nav' => $nav,
+				'market' => $market,
+				'order' => $order
+            ]
+
+        );
+	}
+
+	public function fcPayReturn(Request $request){
+
+		if(!Session::has('cart') || count(Session::get('cart')) < 1 )
+		return redirect('products');
+		$common = new CommonController;
+        $nav = $common->common(); 
+		$order = Session::get('order'); 
+	
+		$order = Order::where('order_number', $order['order_number'])->first();
+		if (!Auth::check()) {
+			User::create([
+				'published' => 1,
+				'name' => $order->name,
+				'email' => strtolower($order->email),
+				'password' => bcrypt($order->phone),
+				'gender' => $order->gender,
+				'phone' => $order->phone,
+				'city' => $order->city,
+				'dist' => $order->dist,
+				'zip' => $order->zip,
+				'address' => $order->address,
+				'token_exptime' => time()+60*60*24,
+				'token' => md5($order->email.$order->phone),
+				//'line' => $data['line'],
+			]);
+			Auth::attempt(['email' => $order->email, 'password' => $order->phone, 'published' => 1]);
+			$user = Auth::user();
+			$user = User::find($user->id);
+			$order->user_id = $user->id;
+		}
+
+		$order->MerchantTradeNo = $request->lidm; //訂單編號
+		$order->RtnCode = $request->status == 0?'付款成功':'付款失敗'; //交易狀態
+		$order->RtnMsg = $request->errDesc; //交易訊息
+		$order->TradeNo = $request->authCode; //綠界的交易編號
+		$order->TradeAmt = $request->authAmt; //交易金額
+		$order->PaymentDate = $request->authRespTime; //付款時間
+		$order->PaymentType = $request->cardBrand; //付款方式
+		
+		$market = false;
+		if(Session::has('RID') && Session::has('Click_ID')){
+			$order->RID = Session::get('RID'); //Click_ID
+			$order->Click_ID = Session::get('Click_ID'); //Click_ID
+			$market = $request->status == 0?true:false;
+		}
+
+		$order->save();
+		
+
+		$data = [
+			'name' => $order->name,
+			'email' => $order->email,
+			'order_number' => $order->order_number,
+			'payment_date' => $order->PaymentDate,
+			'payment_type' => $order->PaymentType,
+			'payment_result' => $order->RtnCode,
+			'merchant_trade' => $order->MerchantTradeNo,
+			'total' => $order->TradeAmt
+		];
+	
+			
+				//return $order;	
+
+		$from = ['email'=> 'farmertimex@farmertimex.com.tw',
+			'name'=> '草菓農場 線上自動回覆',
+			'subject'=>'訂單編號：'.$order->order_number.'付款狀態確認通知'
+		];
+		//填寫收信人信箱
+		$to = ['email'=>$data['email'],'name'=>$data['name']];
+		//信件的內容(即表單填寫的資料)
+		//寄出信件
+		//$emails = Email::where('published', 1)->get();
+	
+		Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$order) {
+			$message->from($from['email'], $from['name']);
+		//	foreach ($emails as $k => $v) {
+                # code...
+        //        $message->to($to['email'], $to['name'])->cc($v->email, $v->name)->subject('訂單編號：'.$order->order_number.'付款狀態確認通知');
+       //     }
+			$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用草菓農場線上訂購優質商品');
+		});
+	
+		
+		Session::forget('bill');
+		Session::forget('cart');
+		Session::forget('order');
+
+		//return 'TEST';
+
+		return view('front.shop.complete',
+            [
+                'nav' => $nav,
+				'market' => $market,
+				'order' => $order
+            ]
+
+        );
+	}
+
 
 	
 
@@ -191,13 +371,21 @@ class CartController extends Controller
 		
 
 		$order->MerchantTradeNo = $request->MerchantTradeNo; //特店交易編號
-		$order->RtnCode = $request->RtnCode == 1?'刷卡成功':'刷卡失敗'; //交易狀態
+		$order->RtnCode = $request->RtnCode == 1?'付款成功':'付款失敗'; //交易狀態
 		$order->RtnMsg = $request->RtnMsg; //交易訊息
 		$order->TradeNo = $request->TradeNo; //綠界的交易編號
 		$order->TradeAmt = $request->TradeAmt; //交易金額
 		$order->PaymentDate = $request->PaymentDate; //付款時間
 		$order->PaymentType = $request->payment; //付款方式
-		
+
+		$market = false;
+		if(Session::has('RID') && Session::has('Click_ID')){
+			$order->RID = Session::get('RID'); //Click_ID
+			$order->Click_ID = Session::get('Click_ID'); //Click_ID
+			$market = $request->RtnCode == 1?true:false;
+		}
+
+
 		$order->save();
 		
 		
@@ -217,7 +405,7 @@ class CartController extends Controller
 			
 				//return $order;	
 
-		$from = ['email'=> 'no-reply@farmertimex.com.tw',
+		$from = ['email'=> 'farmertimex@farmertimex.com.tw',
 			'name'=> '草菓農場 線上自動回覆',
 			'subject'=>'訂單編號：'.$order->order_number.'付款狀態確認通知'
 		];
@@ -227,15 +415,16 @@ class CartController extends Controller
 		//寄出信件
 		//$emails = Email::where('published', 1)->get();
 	
-		//Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$emails,$order) {
-		//	$message->from($from['email'], $from['name']);
+		Mail::send('emails.checkout', $data, function($message) use ($from, $to ,$order) {
+			$message->from($from['email'], $from['name']);
 		//	foreach ($emails as $k => $v) {
                 # code...
         //        $message->to($to['email'], $to['name'])->cc($v->email, $v->name)->subject('訂單編號：'.$order->order_number.'付款狀態確認通知');
        //     }
-			//$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用金錦町 JIN JIN DING線上訂購優質商品');
-		//});
-	
+			$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用草菓農場線上訂購優質商品');
+		});
+		
+		
 		
 		Session::forget('bill');
 		Session::forget('cart');
@@ -245,7 +434,7 @@ class CartController extends Controller
         return view('front.shop.complete',
             [
                 'nav' => $nav,
-				
+				'market' => $market,
 				'order' => $order
             ]
 
@@ -337,7 +526,7 @@ class CartController extends Controller
 		return redirect('products');
 
 		if(!Auth::check()){
-			if(!Session::has('later'))return redirect('login');
+			if(!Session::has('later'))return redirect('login/cart');
 		}
 
 		$common = new CommonController;
@@ -428,6 +617,7 @@ class CartController extends Controller
         $nav = $common->common(); 
 		
 		$user = Auth::user();
+		//$user = User::where('email','fly10170823@gmail.com')->first();
 		//if($user)$user->category = UserCategory::find($user->category_id);
 		//return $user;
 		$plugin = new CartPluginController;
@@ -465,7 +655,7 @@ class CartController extends Controller
 		if($user && !Auth::check()){
 			$msg = '此信箱已經註冊,煩請先登入會員帳號即可享有會員優惠';
 			Session::forget('later');
-			return redirect('login')->with('error', $msg);
+			return redirect('login/payment')->with('error', $msg);
 		}
 
 		$order = Session::get('order'); 
@@ -541,6 +731,7 @@ class CartController extends Controller
 		$user = Auth::user();
 		$data = Order::where('order_number', $order['order_number'])->first();
 		$data = $data?$data:new Order;
+		$data->published = 1;
 		$data->order_date = date('Y/m/d H:i:s'); //訂單日期
 		$data->order_number	= $order['order_number'];//訂單編號
 		$data->payment = $order['payment'];//備註
@@ -594,9 +785,9 @@ class CartController extends Controller
 			$detail->save();
 		}
 		Session::put('order', $order);
-		
+		$order['user_id'] = Auth::check()?$user->id:0;
 	
-		$from = ['email'=> 'no-reply@farmertimex.com.tw',
+		$from = ['email'=> 'farmertimex@farmertimex.com.tw',
 					'name'=> '草菓農場 線上自動回覆',
 					'subject'=>'感謝您 使用草菓農場線上訂購優質商品'
 				];
@@ -609,22 +800,26 @@ class CartController extends Controller
 		//寄出信件
 		//$emails = Email::where('published', 1)->get();
 		
-	
-		//Mail::send('emails.order', $order, function($message) use ($from, $to, $emails) {
-		//	$message->from($from['email'], $from['name']);
+				// return $order;
+		Mail::send('emails.order', $order, function($message) use ($from, $to) {
+			$message->from($from['email'], $from['name']);
 		//	foreach ($emails as $k => $v) {
 				# code...
 		//		$message->to($to['email'], $to['name'])->cc($v->email, $v->name)->subject('感謝您 使用草菓農場線上訂購優質商品');
 		//	}
-			//$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用草菓農場線上訂購優質商品');
-		//});
-
+			$message->to($to['email'], $to['name'])->cc($from['email'])->subject('感謝您 使用草菓農場線上訂購優質商品');
+		});
+		$result = new FcPayController();
 		if($order['payment'] == '信用卡'){
-			return new CreateOrder(); 
-		}elseif($order['payment'] == 'tPay'){
-			return redirect('tPay');
+			
+			return $result->CreditPay($order); 
+		}elseif($order['payment'] == '虛擬ATM付款'){
+			
+			return $result->AtmPay($order); 
 		}else{
-			return redirect('complete');
+			
+			return $result->QrPay($order); 
+
 		}
 	}
 

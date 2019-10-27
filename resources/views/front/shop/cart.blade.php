@@ -123,20 +123,24 @@
         <h6 class="saletext">折扣代碼</h6>
         <div class="salebox"> 
           @if ($order['discount'])
-          <input class="typing" type="text" name="coupon" value="{{ $order['discount']['code'] }}">
+          <input class="typing" type="text" name="coupon" value="{{ $order['discount']['code'] }}" readonly>
           @else
           <input class="typing" type="text" name="coupon">
           @endif
-
           <input class="send" type="submit" name="discount" value="送出">
         </div>
       </div>
-
+      @if(session('status') && session('status') == '查無此優惠代碼或已經過期')
+      <div class="alert alert-danger">
+          {{ session('status') }} 
+      </div>
+      @endif
+        
       @if ($order['discount'])
-        <div class="alert alert-success">
-          已使用{{ $order['discount']['name'] }} 
-        </div>
-        @endif
+      <div class="alert alert-success">
+        已使用{{ $order['discount']['name'] }} 
+      </div>
+      @endif
 
       <div class="cart_buttonbox">
         <a class="linkbutton" href="{{url('products')}}" title="繼續購物">

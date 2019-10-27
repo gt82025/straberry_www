@@ -261,7 +261,7 @@ class HomeController extends Controller
         $data->phone = $request->phone;
         $data->subject = $request->subject;
         $data->title = $request->title;
-        $data->message = strip_tags($request->message);
+        $data->message = $request->message?strip_tags($request->message):'無';
         $data->save();
 
         //$emails = Email::where('published', 1)->get();
@@ -275,16 +275,16 @@ class HomeController extends Controller
 			'phone'=>$data->phone,
             'subject'=>$data->subject,
             'title'=>$data->title,
-			'message'=>$data->message,
+			'msg'=>$data->message,
         ];
         
-        $from = ['email'=>'no-reply@farmertimex.com.tw',
+        $from = ['email'=>'farmertimex@farmertimex.com.tw',
 			'name'=>'草菓農場 自動回覆',
 			'subject'=>'聯絡我們 - 草莓園有機農場 '
 		];
 
 		//填寫收信人信箱
-		$to = ['email'=>'service@farmertimex.com.tw','name'=>'草菓農場 線上客服'];
+		$to = ['email'=>'linus73921@gmail.com','name'=>'草菓農場線上客服'];
 		//信件的內容(即表單填寫的資料)
 		
         //寄出信件
@@ -293,14 +293,15 @@ class HomeController extends Controller
                 # code...
                 $message->to($v->email, $v->name)->subject($from['subject']);
             }*/
-        /*
-		if($data->id)
+        
+        if($data->id)
 		Mail::send('emails.contact', $result, function($message) use ($from, $to ) {
             $message->from($from['email'], $from['name']);
-            
             $message->to($from['email'], $from['name'])->subject($from['subject']);
 			
         });
+        
+        /*
         */
         $status = '感謝您的來信,我們將盡快請專員與您聯絡';
         return redirect('contact')->with('status', $status);
